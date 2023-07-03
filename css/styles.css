@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+
+:root {
+    --colorTextSecondary: floralwhite;
+
+    --colorPrimary: #20408A;
+    --colorSecondary: lightgrey;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+/* Landmark elements */
+
+header {
+    padding: 0.5rem 0 0.5rem 2rem;
+    color: var(--colorTextSecondary);
+    background-color: var(--colorPrimary);
+}
+
+main {
+    padding: 0.5rem 1rem;
+    line-height: 1.4rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+footer > p {
+    color: var(--colorTextSecondary);
+    background-color: var(--colorPrimary);
+    border-radius: 0;
+    padding: 0.5rem;
+}
+
+section.output {
+    background-color: var(--colorSecondary);
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+section {
+    padding: 1rem;
+    overflow: auto;
+}
+section > div {
+    margin-top: 1rem;
+}
+section > table {
+    margin-top: 1rem;
+}
+section:last-of-type {
+    margin-bottom: 5rem;
+}
+
+/* Non-landmark elements */
+
+span {
+    font-weight: bold;
+}
+code {
+    font-size: 1.2rem;
+}
+
+table {
+    margin: auto;
+    padding: 0.25rem;
+    width: 80%;
+    background-color: var(--colorTextSecondary);
+    border-radius: 0.25rem;
+}
+th, td {
+    padding: 0 1rem;
+    border: thin solid var(--colorPrimary);
+}
+th {
+    color: var(--colorTextSecondary);
+    background-color: var(--colorPrimary);
+    text-align: left;
+}
+td {
+    background-color: var(--colorTextSecondary);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Classes and element IDs */
+
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+.indent {
+    text-indent: 4ch;
+}
+
+#object_content {
+    position: relative;
+    left: 4rem;
+}
+
+/* Spinner positioning */
+
+.loader {
+    display: none;
+    position: relative;
+    left: 2rem;
+    top: -0.5rem;
+    font-size: 5px;
+    color: var(--colorPrimary);
+}
+.loader-active {
+    display: inline-block;
+}

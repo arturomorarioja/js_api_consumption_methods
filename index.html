@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>API test</title>
+    <link rel="stylesheet" href="css/spinner.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+	<script src="js/script.js" defer></script>	
+</head>
+<body>
+    <header>
+        <h1>API Consumption</h1>
+    </header>	
+    <main>
+        <section>
+            <p>API: <span id="api"></span></p>
+            <div>
+                GET request
+                <button id="btnXhr">XHR</button>
+                <button id="btnFetch">Fetch</button>
+                <span class="loader loader-inactive"></span>
+            </div>
+        </section>        
+        <section id="xhr_code" class="output hidden">
+            <h3>XHR Code</h3>
+            <p>
+                <code>
+                    <div>const request = new XMLHttpRequest();</div>
+                    <div>request.open('GET', api);</div>
+                    <div>request.onload = () => {</div>
+                    <div class="indent">const response = request.response;</div>
+                    <div class="indent">const jsonData = JSON.parse(response);</div>
+                    <div>};</div>
+                    <div>request.send();</div>
+                </code>
+            </p>
+        </section>
+        <section id="fetch_code" class="output hidden">
+            <h3>Fetch Code</h3>
+            <p>
+                <code>
+                    <div>const response = await fetch(api);</div>
+                    <div>const jsonData = await response.json();</div>
+                </code>
+            </p>
+        </section>
+        <section class="output hidden">
+            <p>GET response: <code><span id="response"></span></code></p>
+            <p>Response type: <code><span id="response_type"></span></code></p>
+            <p id="object">Object content: <code><span id="object_content"></span></code></p>
+        </section>
+        <section class="output hidden">
+            <p>Parsed response: <code><span id="parsed_response"></span></code></p>
+            <p>Parsed response type: <code><span id="parsed_response_type"></span></code></p>
+            <p>Parsed object:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="parsed_object"></tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>2021 Arturo Mora-Rioja, inspired on the LinkedIn Learning course <em>Introduction to Web APIs</em> (2019)</p>
+    </footer>
+</body>
+</html>
