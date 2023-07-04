@@ -42,37 +42,78 @@ document.querySelector('#btnXhr').addEventListener('click', () => {
 document.querySelector('#btnFetch').addEventListener('click', async () => {
     document.querySelector('.loader').classList.add('loader-active');
 
-    const response = await fetch(api);
+    fetch(api, {
+        method: 'GET',        
+    }).then(response => {
+        // The GET response is a JavaScript object
+        document.querySelector('#response').innerText = response;
+        document.querySelector('#response_type').innerText = typeof response;
 
-    // The GET response is a JavaScript object
-    document.querySelector('#response').innerText = response;
-    document.querySelector('#response_type').innerText = typeof response;
+        const content = `
+            type: ${response.type}
+            url: ${response.url}
+            redirected: ${response.redirected}
+            status: ${response.status}
+            statusText: ${response.statusText}
+            ok: ${response.ok}
+            body: ${response.body}
+            bodyUsed: ${response.bodyUsed}
+            headers: ${response.headers}
+        `;
+        document.querySelector('#object_content').innerText = content;
+
+        return response.json();
+    })
+    .then((data) => {
+        // Once parsed, it becomes JSON
+        document.querySelector('#parsed_response').innerText = data;
+        document.querySelector('#parsed_response_type').innerText = typeof data;
     
-    const content = `
-        type: ${response.type}
-        url: ${response.url}
-        redirected: ${response.redirected}
-        status: ${response.status}
-        statusText: ${response.statusText}
-        ok: ${response.ok}
-        body: ${response.body}
-        bodyUsed: ${response.bodyUsed}
-        headers: ${response.headers}
-    `;
-    document.querySelector('#object_content').innerText = content;
+        // The JSON can be easily manipulated
+        fillTable(data);
+        showOutput();
+        showCode('fetch');
+        showObject();
+        stopSpinner();
+    });
 
-    // Once parsed, it becomes JSON
-    const jsonData = await response.json();
-    document.querySelector('#parsed_response').innerText = jsonData;
-    document.querySelector('#parsed_response_type').innerText = typeof jsonData;
+    
 
-    // The JSON can be easily manipulated
-    fillTable(jsonData);
-    showOutput();
-    showCode('fetch');
-    showObject();
-    stopSpinner();
 });
+// document.querySelector('#btnFetch').addEventListener('click', async () => {
+//     document.querySelector('.loader').classList.add('loader-active');
+
+//     const response = await fetch(api);
+
+//     // The GET response is a JavaScript object
+//     document.querySelector('#response').innerText = response;
+//     document.querySelector('#response_type').innerText = typeof response;
+    
+//     const content = `
+//         type: ${response.type}
+//         url: ${response.url}
+//         redirected: ${response.redirected}
+//         status: ${response.status}
+//         statusText: ${response.statusText}
+//         ok: ${response.ok}
+//         body: ${response.body}
+//         bodyUsed: ${response.bodyUsed}
+//         headers: ${response.headers}
+//     `;
+//     document.querySelector('#object_content').innerText = content;
+
+//     // Once parsed, it becomes JSON
+//     const jsonData = await response.json();
+//     document.querySelector('#parsed_response').innerText = jsonData;
+//     document.querySelector('#parsed_response_type').innerText = typeof jsonData;
+
+//     // The JSON can be easily manipulated
+//     fillTable(jsonData);
+//     showOutput();
+//     showCode('fetch');
+//     showObject();
+//     stopSpinner();
+// });
 
 const fillTable = (jsonData) => {
     const table = document.querySelector('#parsed_object');

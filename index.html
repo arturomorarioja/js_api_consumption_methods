@@ -31,6 +31,7 @@
                     <div>request.onload = () => {</div>
                     <div class="indent">const response = request.response;</div>
                     <div class="indent">const jsonData = JSON.parse(response);</div>
+                    <div class="indent"><em>&lt;Your code&gt;</em></div>
                     <div>};</div>
                     <div>request.send();</div>
                 </code>
@@ -40,8 +41,9 @@
             <h3>Fetch Code</h3>
             <p>
                 <code>
-                    <div>const response = await fetch(api);</div>
-                    <div>const jsonData = await response.json();</div>
+                    <div>fetch(api);</div>
+                    <div class="indent">.then(response => response.json())</div>
+                    <div class="indent">.then((data) => { <em>&lt;Your code&gt;</em> });</div>
                 </code>
             </p>
         </section>
@@ -66,7 +68,7 @@
         </section>
     </main>
     <footer>
-        <p>2021 Arturo Mora-Rioja, inspired on the LinkedIn Learning course <em>Introduction to Web APIs</em> (2019)</p>
+        <p>2021-2023 Arturo Mora-Rioja, inspired by the LinkedIn Learning course <em>Introduction to Web APIs</em> (2019)</p>
     </footer>
 </body>
 </html>
