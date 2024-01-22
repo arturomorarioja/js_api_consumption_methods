@@ -75,11 +75,13 @@ document.querySelector('#btnFetch').addEventListener('click', async () => {
         showCode('fetch');
         showObject();
         stopSpinner();
-    });
-
-    
-
+    });  
 });
+
+/*
+    Alternative fetch() implementation
+*/
+
 // document.querySelector('#btnFetch').addEventListener('click', async () => {
 //     document.querySelector('.loader').classList.add('loader-active');
 
