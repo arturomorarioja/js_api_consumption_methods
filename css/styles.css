@@ -5,14 +5,18 @@
 
     --colorPrimary: #20408A;
     --colorSecondary: lightgrey;
+
+    --fontMain: 'Raleway', Arial, Helvetica, sans-serif;
 }
 
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    font-family: var(--fontMain);
 }
 
 /* Landmark elements */
@@ -33,31 +37,31 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
-}
-footer > p {
-    color: var(--colorTextSecondary);
-    background-color: var(--colorPrimary);
-    border-radius: 0;
-    padding: 0.5rem;
+    > p {
+        color: var(--colorTextSecondary);
+        background-color: var(--colorPrimary);
+        border-radius: 0;
+        padding: 0.5rem;
+    }
 }
 
-section.output {
-    background-color: var(--colorSecondary);
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-}
 section {
     padding: 1rem;
     overflow: auto;
-}
-section > div {
-    margin-top: 1rem;
-}
-section > table {
-    margin-top: 1rem;
-}
-section:last-of-type {
-    margin-bottom: 5rem;
+    &.output {
+        background-color: var(--colorSecondary);
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+    }
+    > div {
+        margin-top: 1rem;
+    }
+    > table {
+        margin-top: 1rem;
+    }
+    &:last-of-type {
+        margin-bottom: 5rem;
+    }
 }
 
 /* Non-landmark elements */
@@ -75,18 +79,18 @@ table {
     width: 80%;
     background-color: var(--colorTextSecondary);
     border-radius: 0.25rem;
-}
-th, td {
-    padding: 0 1rem;
-    border: thin solid var(--colorPrimary);
-}
-th {
-    color: var(--colorTextSecondary);
-    background-color: var(--colorPrimary);
-    text-align: left;
-}
-td {
-    background-color: var(--colorTextSecondary);
+    th, td {
+        padding: 0 1rem;
+        border: thin solid var(--colorPrimary);
+    }
+    th {
+        color: var(--colorTextSecondary);
+        background-color: var(--colorPrimary);
+        text-align: left;
+    }
+    td {
+        background-color: var(--colorTextSecondary);
+    }
 }
 
 a {
